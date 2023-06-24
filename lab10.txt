@@ -1,0 +1,153 @@
+Script started on Sun 14 May 2023 02:56:03 PM PDT
+]0;chandukathi@ecs-pa-coding1:~/csc60/lab10[?1034h[chandukathi@ecs-pa-coding1 lab10]$ touchlab[K[K[K lab9_10.h
+]0;chandukathi@ecs-pa-coding1:~/csc60/lab10[chandukathi@ecs-pa-coding1 lab10]$ make
+gcc -c lab10.c -Wall
+gcc -c ParseCmd.c -Wall
+gcc -c ProcessExtCmd.c -Wall
+gcc -c Redirect.c -Wall
+gcc -c RunExtCmd.c -Wall
+gcc -o lab10 lab10.o ParseCmd.o ProcessExtCmd.o Redirect.o RunExtCmd.o -Wall
+]0;chandukathi@ecs-pa-coding1:~/csc60/lab10[chandukathi@ecs-pa-coding1 lab10]$ lb[Kab[K[K[K./lab10
+
+csc60msh> ls > lsout
+Argc = 3 
+Argv 0 = ls 
+Argv 1 = > 
+Argv 2 = lsout 
+Child returned status: 0
+
+
+csc60msh> cat lsout
+Argc = 2 
+Argv 0 = cat 
+Argv 1 = lsout 
+lab10
+lab10.c
+lab10.o
+lab10.txt
+lab9_10.h
+lsout
+makefile
+ParseCmd.c
+ParseCmd.o
+ProcessExtCmd.c
+ProcessExtCmd.o
+Redirect.c
+Redirect.o
+RunExtCmd.c
+RunExtCmd.o
+Child returned status: 0
+
+
+csc60msh> ls > lsout > file1
+Argc = 5 
+Argv 0 = ls 
+Argv 1 = > 
+Argv 2 = lsout 
+Argv 3 = > 
+Argv 4 = file1 
+Error: Cannot output to more than one file.
+Child returned status: 256
+
+
+csc60msh> cat foot .txt
+Argc = 2 
+Argv 0 = cat 
+Argv 1 = foo.txt 
+cat: foo.txt: No such file or directory
+Child returned status: 256
+
+
+csc60msh> > lsout
+Argc = 2 
+Argv 0 = > 
+Argv 1 = lsout 
+Error: No command was entered.
+Child returned status: 256
+
+
+csc60msh> < lsout
+Argc = 2 
+Argv 0 = < 
+Argv 1 = lsout 
+Error: No command was entered.
+Child returned status: 256
+
+
+csc60msh> wc < lsout
+Argc = 3 
+Argv 0 = wc 
+Argv 1 = < 
+Argv 2 = lsout 
+ 15  15 157
+Child returned status: 0
+
+
+csc60msh> wc < sl  lsout > wcout
+Argc = 5 
+Argv 0 = wc 
+Argv 1 = < 
+Argv 2 = lsout 
+Argv 3 = > 
+Argv 4 = wcout 
+Child returned status: 0
+
+
+csc60msh> cat l wcout
+Argc = 2 
+Argv 0 = cat 
+Argv 1 = wcout 
+ 15  15 157
+Child returned status: 0
+
+
+csc60msh>   wc < lsout < l wcout
+Argc = 5 
+Argv 0 = wc 
+Argv 1 = < 
+Argv 2 = lsout 
+Argv 3 = < 
+Argv 4 = wcout 
+Error: Cannot input from more than one file.
+Child returned status: 256
+
+
+csc60msh> cd ..;s  /lab2
+Argc = 2 
+Argv 0 = cd 
+Argv 1 = ../lab2 
+
+csc60msh> pwe d
+Argc = 1 
+Argv 0 = pwd 
+/home/student/chandukathi/csc60/lab2
+
+csc60msh> gcc lab2.c
+Argc = 2 
+Argv 0 = gcc 
+Argv 1 = lab2.c 
+Child returned status: 0
+
+
+csc60msh> ./ao .out
+Argc = 1 
+Argv 0 = ./a.out 
+
+Lab2.
+
+Hello World.
+Hi, Chandu Kathi 
+
+If you have knowledge, let others light their candles in it.
+   --Margaret Fuller 
+
+Child returned status: 0
+
+
+csc60msh> exoi  it
+Argc = 1 
+Argv 0 = exit 
+]0;chandukathi@ecs-pa-coding1:~/csc60/lab10[chandukathi@ecs-pa-coding1 lab10]$ exit
+exit
+
+Script done on Sun 14 May 2023 02:58:20 PM PDT
